@@ -40,8 +40,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button9 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -49,8 +49,6 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dgvCounts = new System.Windows.Forms.DataGridView();
             this.button6 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -177,23 +175,11 @@
             this.checkedListBox1.Size = new System.Drawing.Size(120, 169);
             this.checkedListBox1.TabIndex = 0;
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(244, 147);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(121, 41);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "Export generated selections";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.button10);
             this.groupBox4.Controls.Add(this.button9);
             this.groupBox4.Controls.Add(this.textBox2);
             this.groupBox4.Controls.Add(this.button8);
-            this.groupBox4.Controls.Add(this.button4);
             this.groupBox4.Controls.Add(this.button7);
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.textBox1);
@@ -205,6 +191,16 @@
             this.groupBox4.TabIndex = 10;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Insights";
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(243, 147);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(121, 41);
+            this.button9.TabIndex = 9;
+            this.button9.Text = "Export all tables";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // textBox2
             // 
@@ -272,26 +268,6 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(244, 239);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(121, 41);
-            this.button9.TabIndex = 9;
-            this.button9.Text = "Export all tables";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(243, 194);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(121, 39);
-            this.button10.TabIndex = 10;
-            this.button10.Text = "Export insights";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
-            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(1443, 969);
@@ -331,7 +307,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.DataGridView dgvCounts;
@@ -340,7 +315,6 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button9;
     }
 }

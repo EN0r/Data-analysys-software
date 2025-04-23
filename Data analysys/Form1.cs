@@ -85,7 +85,7 @@ namespace Data_analysys
             }
         }
 
-        public void setMoneyRows(DataGridView _dgv)
+        public void setMoneyRows(DataGridView _dgv) // add relevant currency codes depending on the location and currency listed as
         {
             foreach(DataGridViewRow r in _dgv.Rows)
             {
@@ -134,11 +134,10 @@ namespace Data_analysys
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
                 string selectedFilePath = fileDialog.FileName;
-                Console.WriteLine($"Selected File: {selectedFilePath}");
                 MessageBox.Show("File opened succesfully!");
                 groupBox1.Text = "Currently viewing: " + selectedFilePath;
             }
-            var timer = new Stopwatch();
+            // var timer = new Stopwatch(); obsolete wanted to implement multithreading or coroutining but couldnt figure it out for the life of me in c# :(
             dataGridView1.DataSource = createDTFromFile(fileDialog.FileName);
             getRowAttributes(dataGridView1);
             setMoneyRows(dataGridView1);
@@ -157,23 +156,6 @@ namespace Data_analysys
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-        }
-        private void removeEmptyRows(DataGridView dgv,DataGridViewColumn col)
-        {
-            List<DataGridViewRow> rowsToRemove = new List<DataGridViewRow>();
-
-            foreach (DataGridViewRow row in dgv.Rows)
-            {
-                if (string.IsNullOrWhiteSpace(row.Cells[col.Name].Value?.ToString()))
-                {
-                    rowsToRemove.Add(row);
-                }
-            }
-
-            foreach (DataGridViewRow rowToRemove in rowsToRemove)
-            {
-                dgv.Rows.Remove(rowToRemove);
-            }
         }
 
         private DataTable generateDataTable(DataGridView originTable)
@@ -242,6 +224,7 @@ namespace Data_analysys
         {
             StringBuilder sb = new StringBuilder();
             FileStream fileStream = File.Create(filePath + "\\" + fileName + ".tsv");
+            fileStream.Close();
             foreach (DataGridViewColumn col in dgv.Columns)
             {
                 sb.Append(col.HeaderText);
@@ -260,7 +243,8 @@ namespace Data_analysys
                 sb.AppendLine();
             }
 
-            File.WriteAllText(filePath, sb.ToString());
+            File.WriteAllText(filePath + "\\" + fileName + ".tsv" , sb.ToString());
+            MessageBox.Show("Generated TSV: " + filePath + "\\" + fileName + ".tsv");
         }
 
         private double CalculateAverageFromDataGridView(DataGridView dgv, string columnName)
