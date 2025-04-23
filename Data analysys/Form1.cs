@@ -92,9 +92,15 @@ namespace Data_analysys
                 string currencyCode = Convert.ToString(r.Cells[15].Value);
                 if(currencyCode == currencyCodestr[1]) // could use a switch case with enumeration values. But in this case i think if statements can be quicker with this state of data
                 {
-                    r.Cells[16].Value = currencies[1] + r.Cells[16].Value;
-                    r.Cells[17].Value = currencies[0] + r.Cells[17].Value;
-                    r.Cells[18].Value = currencies[0] + r.Cells[18].Value;
+                    // saleprice is cell 16 units per gbp is cell 18
+                    // this math here uses the unit per gbp to convert the euros to gbp.
+                    int tv2 = Convert.ToInt32(r.Cells[16].Value);
+                    // sad that i cant use tofloat for currency conversion
+                    double tv1 = Convert.ToDouble(r.Cells[18].Value.ToString().Remove(0, 1));
+                    double totalVal = tv2 * tv1;
+                    r.Cells[16].Value = currencies[0] + totalVal;
+                   // r.Cells[17].Value = currencies[0] + r.Cells[17].Value;
+                   // r.Cells[18].Value = currencies[0] + r.Cells[18].Value;
                 } else if(currencyCode == currencyCodestr[0])
                 {
                     r.Cells[16].Value = currencies[0] + r.Cells[16].Value;
@@ -273,8 +279,8 @@ namespace Data_analysys
 
         private void displayCountsInDataGridView(Dictionary<string, int> itemCounts)
         {
-            dgvCounts.Columns.Add("Value", "Value"); // Column for the unique values
-            dgvCounts.Columns.Add("Count", "Count"); // Column for the counts
+            dgvCounts.Columns.Add("Value", "Value");
+            dgvCounts.Columns.Add("Count", "Count");
             foreach (var kvp in itemCounts)
             {
                 dgvCounts.Rows.Add(kvp.Key, kvp.Value);
