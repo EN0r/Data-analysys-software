@@ -1,1 +1,1 @@
-This software is for a job interview i have. So i am building it for that.
+This software is the final product of a project i have been working on for a interview i am currently partaking in. Being assigned a specific problem and using programming in data analasis has been insanely fun to the point where i've managed to publish an actual finished product.
